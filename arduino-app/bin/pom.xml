@@ -77,7 +77,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>br.com.cams7.arduino.jmx.Main</mainClass>
+							<mainClass>br.com.cams7.teste.embarcado.App</mainClass>
 							<classpathPrefix>dependency-jars/</classpathPrefix>
 							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>

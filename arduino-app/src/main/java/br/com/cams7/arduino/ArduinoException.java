@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.cams7.embarcado.arduino;
+package br.com.cams7.arduino;
 
 /**
  * @author cesar
