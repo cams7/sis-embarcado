@@ -1,3 +1,6 @@
+#include <Thread.h>
+#include <ThreadController.h>
+
 #define BAUD_RATE 9600
 
 #define PIN_LED_VERDE    12
@@ -29,13 +32,6 @@ const int MAX_STATUS_POTENCIOMETRO = 200;
 
 int ultimoStatusPotenciometro = 0;
 int ultimoStatusBotoes[TOTAL_LEDS];
-
-int lastExecuteTimeLEDs = 0;
-int lastExecuteTimeBotoes = 0;
-
-int lastExecuteTimePotenciometro = 0;
-
-int lastExecuteTimeLEDAzul = 0;
 
 void acendeApagaLEDPorSerial(){
   if(Serial.available() > 0){ //verifica se existe comunicação com a porta serial
@@ -87,6 +83,17 @@ void piscaLEDAzul(){
   digitalWrite(PIN_LED_AZUL, !digitalRead(PIN_LED_AZUL));
 }
 
+// ThreadController that will controll all threads
+ThreadController controll = ThreadController();
+
+//My Thread (as a pointer)
+Thread* ledsThread = new Thread();
+Thread* botoesThread = new Thread();
+Thread* potenciometroThread = new Thread();
+
+//His Thread (not pointer)
+Thread ledAzulThread = Thread();
+
 void setup(){
   Serial.begin(BAUD_RATE);//frequência da porta serial - USART
     
@@ -100,31 +107,29 @@ void setup(){
   }
   
   pinMode(PIN_LED_AZUL, OUTPUT);
+  
+  // Configure Thread
+  ledsThread->onRun(acendeApagaLEDPorSerial);
+  ledsThread->setInterval(LED_TIME);
+  
+  botoesThread->onRun(acendeApagaLEDPorBotao);
+  botoesThread->setInterval(BOTAO_TIME);
+  
+  potenciometroThread->onRun(alteraStatusPotenciometro);
+  potenciometroThread->setInterval(POTENCIOMETRO_TIME);
+  
+  ledAzulThread.onRun(piscaLEDAzul);
+  ledAzulThread.setInterval(LED_AZUL_TIME);
+  
+  // Adds both threads to the controller
+  controll.add(ledsThread);
+  controll.add(botoesThread);
+  controll.add(potenciometroThread);
+  
+  controll.add(&ledAzulThread); // & to pass the pointer to it
 }
 
  
-void loop(){
-  int executeTime = millis();
-  //A cada periodo de 1 segundo os LEDs podem ser acesos ou apagados
-  if((executeTime - lastExecuteTimeLEDs) >= LED_TIME){
-    lastExecuteTimeLEDs = executeTime;    
-    acendeApagaLEDPorSerial();  
-  }
-  //A cada periodo de 1/10 o valor do Potenciometro podem ser alterado
-  if((executeTime - lastExecuteTimePotenciometro) >= POTENCIOMETRO_TIME){
-    lastExecuteTimePotenciometro = executeTime;
-    alteraStatusPotenciometro();        
-  }
-  
-  //char estado = 0x00;
-  //A cada periodo de 1/2 segundo os botões podem ser pressionados ou soltos
-  if((executeTime - lastExecuteTimeBotoes) >= BOTAO_TIME){
-    lastExecuteTimeBotoes = executeTime; 
-    acendeApagaLEDPorBotao();         
-  }
-  //A cada periodo de 3 segundos o LED azul pisca
-  if((executeTime - lastExecuteTimeLEDAzul) >= LED_AZUL_TIME){
-    lastExecuteTimeLEDAzul = executeTime; 
-    piscaLEDAzul();    
-  }
+void loop(){  
+  controll.run();
 }
