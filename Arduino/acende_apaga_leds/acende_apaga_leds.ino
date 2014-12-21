@@ -1,8 +1,9 @@
 #define BAUD_RATE 9600
 
-#define PIN_LED_VERDE         12
-#define PIN_LED_AMARELA       13 //atribui o pino 13 a variável ledPin
-#define PIN_LED_VERMELHA      2
+#define PIN_LED_VERDE    12
+#define PIN_LED_AMARELA  13 //atribui o pino 13 a variável ledPin
+#define PIN_LED_VERMELHA 2
+#define PIN_LED_AZUL     3
 
 #define PIN_BOTAO_LED_VERDE    7
 #define PIN_BOTAO_LED_AMARELA  8
@@ -13,6 +14,7 @@
 #define LED_TIME           1000 // 1 segundo
 #define BOTAO_TIME         500  // 1/2 segundo
 #define POTENCIOMETRO_TIME 100  // 1/10 de segundo
+#define LED_AZUL_TIME      3000 // 3 segundo
 
 const int TOTAL_LEDS = 3;
 
@@ -28,9 +30,62 @@ const int MAX_STATUS_POTENCIOMETRO = 200;
 int ultimoStatusPotenciometro = 0;
 int ultimoStatusBotoes[TOTAL_LEDS];
 
-int lastExecuteTimeLED = 0;
-int lastExecuteTimeBotao = 0;
+int lastExecuteTimeLEDs = 0;
+int lastExecuteTimeBotoes = 0;
+
 int lastExecuteTimePotenciometro = 0;
+
+int lastExecuteTimeLEDAzul = 0;
+
+void acendeApagaLEDPorSerial(){
+  if(Serial.available() > 0){ //verifica se existe comunicação com a porta serial
+    int dado = Serial.read();//lê os dados da porta serial - Maximo 64 bytes
+        
+    for(int i=0; i<TOTAL_LEDS; i++){          
+      int statusLED = STATUS_LED + (i * 2);
+      if(statusLED == dado){            
+        digitalWrite(PIN_LEDS[i], LOW);
+        Serial.write(statusLED);  
+      } else if((statusLED + 1) == dado){
+        digitalWrite(PIN_LEDS[i], HIGH);
+        Serial.write(statusLED + 1);
+      }        
+    }   
+  }   
+}
+
+void acendeApagaLEDPorBotao(){
+  for(int i=0; i<TOTAL_LEDS; i++){      
+    int statusBotao = digitalRead(PIN_BOTOES[i]);
+        
+    if(statusBotao != ultimoStatusBotoes[i]){
+      //estado = estado | (statusBotao << i);
+      //sensors[i] = chegou & (0x01 << i)        
+      if(statusBotao == HIGH){          
+        digitalWrite(PIN_LEDS[i], LOW); 
+        Serial.write(STATUS_BOTAO + (i * 2));
+      }else{
+        digitalWrite(PIN_LEDS[i], HIGH);
+        Serial.write(STATUS_BOTAO + (i * 2) + 1);
+      }      
+      //Serial.write(estado);
+      ultimoStatusBotoes[i] = statusBotao; 
+    }
+  }
+}
+
+void alteraStatusPotenciometro(){
+  int statusPotenciometro = analogRead(PIN_POTENCIOMETRO);
+  if(statusPotenciometro != ultimoStatusPotenciometro){      
+    ultimoStatusPotenciometro = statusPotenciometro;
+    /* Mapeia um valor analogico para 8 bits (0 to 255) */
+    Serial.write(map(statusPotenciometro, 0, 1023, MIN_STATUS_POTENCIOMETRO, MAX_STATUS_POTENCIOMETRO));
+  }
+}
+
+void piscaLEDAzul(){
+  digitalWrite(PIN_LED_AZUL, !digitalRead(PIN_LED_AZUL));
+}
 
 void setup(){
   Serial.begin(BAUD_RATE);//frequência da porta serial - USART
@@ -43,63 +98,33 @@ void setup(){
     ultimoStatusBotoes[i]= HIGH;
     digitalWrite(PIN_BOTOES[i], ultimoStatusBotoes[i]);
   }
+  
+  pinMode(PIN_LED_AZUL, OUTPUT);
 }
+
  
 void loop(){
   int executeTime = millis();
-  
-  if((executeTime - lastExecuteTimeLED) >= LED_TIME){
-    lastExecuteTimeLED = executeTime;
-    
-    if(Serial.available() > 0){ //verifica se existe comunicação com a porta serial
-        int dado = Serial.read();//lê os dados da porta serial - Maximo 64 bytes
-        
-        for(int i=0; i<TOTAL_LEDS; i++){
-          int statusLED = STATUS_LED + (i * 2);
-          if(statusLED == dado){
-            digitalWrite(PIN_LEDS[i], LOW);
-            Serial.write(statusLED);  
-          } else if((statusLED + 1) == dado){
-            digitalWrite(PIN_LEDS[i], HIGH);
-            Serial.write(statusLED + 1);
-          }        
-        }   
-    }    
+  //A cada periodo de 1 segundo os LEDs podem ser acesos ou apagados
+  if((executeTime - lastExecuteTimeLEDs) >= LED_TIME){
+    lastExecuteTimeLEDs = executeTime;    
+    acendeApagaLEDPorSerial();  
   }
-  
+  //A cada periodo de 1/10 o valor do Potenciometro podem ser alterado
   if((executeTime - lastExecuteTimePotenciometro) >= POTENCIOMETRO_TIME){
     lastExecuteTimePotenciometro = executeTime;
-    
-    int statusPotenciometro = analogRead(PIN_POTENCIOMETRO);
-    if(statusPotenciometro != ultimoStatusPotenciometro){
-      ultimoStatusPotenciometro = statusPotenciometro;
-      /* Mapeia um valor analogico para 8 bits (0 to 255) */
-      Serial.write(map(statusPotenciometro, 0, 1023, MIN_STATUS_POTENCIOMETRO, MAX_STATUS_POTENCIOMETRO));
-    }    
+    alteraStatusPotenciometro();        
   }
   
   //char estado = 0x00;
-  
-  if((executeTime - lastExecuteTimeBotao) >= POTENCIOMETRO_TIME){
-    lastExecuteTimeBotao = executeTime; 
-    
-    for(int i=0; i<TOTAL_LEDS; i++){
-      int statusBotao = digitalRead(PIN_BOTOES[i]);
-        
-      if(statusBotao != ultimoStatusBotoes[i]){
-        //estado = estado | (statusBotao << i);
-        //sensors[i] = chegou & (0x01 << i)
-        
-        if(statusBotao == HIGH){
-          digitalWrite(PIN_LEDS[i], LOW); 
-          Serial.write(STATUS_BOTAO + (i * 2));
-        }else{
-          digitalWrite(PIN_LEDS[i], HIGH);
-          Serial.write(STATUS_BOTAO + (i * 2) + 1);
-        }      
-        //Serial.write(estado);
-        ultimoStatusBotoes[i] = statusBotao; 
-      }
-    }     
+  //A cada periodo de 1/2 segundo os botões podem ser pressionados ou soltos
+  if((executeTime - lastExecuteTimeBotoes) >= BOTAO_TIME){
+    lastExecuteTimeBotoes = executeTime; 
+    acendeApagaLEDPorBotao();         
+  }
+  //A cada periodo de 3 segundos o LED azul pisca
+  if((executeTime - lastExecuteTimeLEDAzul) >= LED_AZUL_TIME){
+    lastExecuteTimeLEDAzul = executeTime; 
+    piscaLEDAzul();    
   }
 }
