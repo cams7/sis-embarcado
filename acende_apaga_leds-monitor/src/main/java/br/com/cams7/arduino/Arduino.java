@@ -26,7 +26,7 @@ public abstract class Arduino implements Runnable, SerialPortEventListener {
 	private int baudRate;
 	private String serialPort;
 
-	private long millis;
+	private long threadTime;
 
 	private int dadoEnviado = -1;
 	private int ultimoDadoRecebido = -1;
@@ -44,14 +44,14 @@ public abstract class Arduino implements Runnable, SerialPortEventListener {
 	 * @param bauldRate
 	 *            - Taxa de transferencia da porta serial geralmente e 9600
 	 */
-	private Arduino(String serialPort, int baudRate, long millis)
+	private Arduino(String serialPort, int baudRate, long threadTime)
 			throws ArduinoException {
 		super();
 
 		this.serialPort = serialPort;
 		this.baudRate = baudRate;
 
-		this.millis = millis;
+		this.threadTime = threadTime;
 
 		init();
 	}
@@ -189,7 +189,7 @@ public abstract class Arduino implements Runnable, SerialPortEventListener {
 	 */
 	public void run() {
 		try {
-			Thread.sleep(millis);
+			Thread.sleep(threadTime);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

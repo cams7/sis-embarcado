@@ -13,26 +13,34 @@ import br.com.cams7.arduino.ArduinoException;
 public class AppArduinoService extends Arduino implements
 		AppArduinoServiceMBean {
 
-	private final int LED_AMARELA_APAGADA = 10;
-	private final int LED_AMARELA_ACESA = 11;
+	private final int LED_VERDE_APAGADA = 10;
+	private final int LED_VERDE_ACESA = 11;
 
-	private final int LED_VERDE_APAGADA = 12;
-	private final int LED_VERDE_ACESA = 13;
+	private final int LED_AMARELA_APAGADA = 12;
+	private final int LED_AMARELA_ACESA = 13;
 
-	private final int BTN_LED_AMARELA_SOLTO = 14;
-	private final int BTN_LED_AMARELA_PRESSIONADO = 15;
+	private final int LED_VERMELHA_APAGADA = 14;
+	private final int LED_VERMELHA_ACESA = 15;
 
-	private final int BTN_LED_VERDE_SOLTO = 16;
-	private final int BTN_LED_VERDE_PRESSIONADO = 17;
+	private final int BTN_LED_VERDE_SOLTO = 20;
+	private final int BTN_LED_VERDE_PRESSIONADO = 21;
+
+	private final int BTN_LED_AMARELA_SOLTO = 22;
+	private final int BTN_LED_AMARELA_PRESSIONADO = 23;
+
+	private final int BTN_LED_VERMELHA_SOLTO = 24;
+	private final int BTN_LED_VERMELHA_PRESSIONADO = 25;
 
 	private final int MIN_POTENCIOMETRO = 100;
 	private final int MAX_POTENCIOMETRO = 200;
 
 	private final byte EVENTO_MUDA_STATUS_LED_AMARELA = EVENTO_NAO_INFORMADO + 1;
-	private final byte EVENTO_MUDA_STATUS_LED_VERDE = EVENTO_NAO_INFORMADO + 2;
+	private final byte EVENTO_MUDA_STATUS_LED_VERDE = EVENTO_MUDA_STATUS_LED_AMARELA + 1;
+	private final byte EVENTO_MUDA_STATUS_LED_VERMELHA = EVENTO_MUDA_STATUS_LED_VERDE + 1;
 
 	private boolean ledAmarelaLigada = false;
 	private boolean ledVerdeLigada = false;
+	private boolean ledVermelhaLigada = false;
 
 	public AppArduinoService() throws ArduinoException {
 		super();
@@ -102,6 +110,34 @@ public class AppArduinoService extends Arduino implements
 				.println("Ocorreu um erro ao tentar acender ou apagar o LED Verde");
 	}
 
+	public void mudaStatusLEDVermelha() {
+		try {
+			if (ledVermelhaLigada)
+				serialWrite(LED_VERMELHA_APAGADA);
+			else
+				serialWrite(LED_VERMELHA_ACESA);
+		} catch (ArduinoException e) {
+			e.printStackTrace();
+		}
+
+		setEventoAtual(EVENTO_MUDA_STATUS_LED_VERMELHA);
+	}
+
+	private void printStatusLEDVermelha(boolean ledVermelha) {
+		System.out.println(ledVermelha ? "LED Vermelha acesa"
+				: "LED Vermelha apagada");
+	}
+
+	private void mudaStatusLEDVermelhaOK() {
+		ledVermelhaLigada = !ledVermelhaLigada;
+		printStatusLEDVermelha(ledVermelhaLigada);
+	}
+
+	private void printStatusErrorLEDVermelha() {
+		System.err
+				.println("Ocorreu um erro ao tentar acender ou apagar o LED Vermelha");
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -116,6 +152,9 @@ public class AppArduinoService extends Arduino implements
 			break;
 		case EVENTO_MUDA_STATUS_LED_VERDE:
 			mudaStatusLEDVerdeOK();
+			break;
+		case EVENTO_MUDA_STATUS_LED_VERMELHA:
+			mudaStatusLEDVermelhaOK();
 			break;
 
 		default:
@@ -138,7 +177,9 @@ public class AppArduinoService extends Arduino implements
 		case EVENTO_MUDA_STATUS_LED_VERDE:
 			printStatusErrorLEDVerde();
 			break;
-
+		case EVENTO_MUDA_STATUS_LED_VERMELHA:
+			printStatusErrorLEDVermelha();
+			break;
 		default:
 			break;
 		}
@@ -173,6 +214,14 @@ public class AppArduinoService extends Arduino implements
 				ledVerdeLigada = true;
 				printStatusLEDVerde(ledVerdeLigada);
 				break;
+			case BTN_LED_VERMELHA_SOLTO:
+				ledVermelhaLigada = false;
+				printStatusLEDVermelha(ledVermelhaLigada);
+				break;
+			case BTN_LED_VERMELHA_PRESSIONADO:
+				ledVermelhaLigada = true;
+				printStatusLEDVermelha(ledVermelhaLigada);
+				break;
 			default:
 				System.err
 						.println("O dado '" + dadoRecebido + "' nao e valido");
@@ -199,6 +248,10 @@ public class AppArduinoService extends Arduino implements
 
 	public boolean isLedVerdeLigada() {
 		return ledVerdeLigada;
+	}
+
+	protected boolean isLedVermelhaLigada() {
+		return ledVermelhaLigada;
 	}
 
 }

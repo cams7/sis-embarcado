@@ -13,4 +13,6 @@ public interface AppArduinoServiceMBean {
 
 	public void mudaStatusLEDVerde();
 
+	public void mudaStatusLEDVermelha();
+
 }
