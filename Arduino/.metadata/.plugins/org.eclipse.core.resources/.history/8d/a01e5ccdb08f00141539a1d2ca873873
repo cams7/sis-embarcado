@@ -1,0 +1,45 @@
+/*
+ * main.cpp
+ *
+ *  Created on: 29/12/2014
+ *      Author: cams7
+ */
+#include <Arduino.h>
+#include <Thread.h>
+#include <ThreadController.h>
+
+#define BAUD_RATE 9600
+
+#define PIN_LED_VERDE    12
+#define PIN_LED_AMARELA  13 //atribui o pino 13 a variável ledPin
+#define PIN_LED_VERMELHA 2
+#define PIN_LED_AZUL     3
+
+#define PIN_BOTAO_LED_VERDE    7
+#define PIN_BOTAO_LED_AMARELA  8
+#define PIN_BOTAO_LED_VERMELHA 4
+
+#define PIN_POTENCIOMETRO     0
+
+#define LED_TIME           1000 // 1 segundo
+#define BOTAO_TIME         500  // 1/2 segundo
+#define POTENCIOMETRO_TIME 100  // 1/10 de segundo
+
+int main(void) {
+	init();
+	setup();
+
+	while (true) {
+		loop();
+	}
+	return 0;
+}
+
+void setup(void) {
+
+}
+
+void loop(void) {
+
+}
+

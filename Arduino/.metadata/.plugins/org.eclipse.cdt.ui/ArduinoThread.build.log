@@ -1,0 +1,53 @@
+21:06:02 **** Incremental Build of configuration 328P_16MHz for project ArduinoThread ****
+make all 
+Building file: ../src/Thread.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/Thread.d" -MT"src/Thread.d" -c -o "src/Thread.o" "../src/Thread.cpp"
+Finished building: ../src/Thread.cpp
+ 
+Building file: ../src/ThreadController.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/ThreadController.d" -MT"src/ThreadController.d" -c -o "src/ThreadController.o" "../src/ThreadController.cpp"
+../src/ThreadController.cpp: In member function 'void ThreadController::remove(int)':
+../src/ThreadController.cpp:68: warning: unused variable 'found'
+Finished building: ../src/ThreadController.cpp
+ 
+Building target: libArduinoThread.a
+Invoking: AVR Archiver
+avr-ar -r  "libArduinoThread.a"  ./src/Thread.o ./src/ThreadController.o  
+c:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\tools\avr\bin\avr-ar.exe: creating libArduinoThread.a
+Finished building target: libArduinoThread.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libArduinoThread.a  >"libArduinoThread.lss"
+Finished building: libArduinoThread.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p libArduinoThread.a
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+21:06:04 Build Finished (took 1s.113ms)
+

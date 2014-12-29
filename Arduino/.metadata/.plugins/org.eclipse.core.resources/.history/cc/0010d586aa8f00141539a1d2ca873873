@@ -1,0 +1,17 @@
+/*
+ * main.cpp
+ *
+ *  Created on: 29/12/2014
+ *      Author: cams7
+ */
+#include <Arduino.h>
+
+int main(void) {
+	init();
+
+	while (true) {
+
+	}
+	return 0;
+}
+

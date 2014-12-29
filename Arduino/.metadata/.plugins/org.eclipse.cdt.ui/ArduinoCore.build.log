@@ -1,0 +1,334 @@
+20:59:42 **** Incremental Build of configuration 328P_16MHz for project ArduinoCore ****
+make all 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/malloc.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -std=gnu99 -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/avr-libc/malloc.d" -MT"src/avr-libc/malloc.d" -c -o "src/avr-libc/malloc.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/malloc.c"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/malloc.c
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/realloc.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -std=gnu99 -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/avr-libc/realloc.d" -MT"src/avr-libc/realloc.d" -c -o "src/avr-libc/realloc.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/realloc.c"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/avr-libc/realloc.c
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/CDC.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/CDC.d" -MT"src/CDC.d" -c -o "src/CDC.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/CDC.cpp"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/CDC.cpp
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HID.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/HID.d" -MT"src/HID.d" -c -o "src/HID.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HID.cpp"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HID.cpp
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/HardwareSerial.d" -MT"src/HardwareSerial.d" -c -o "src/HardwareSerial.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp"
+C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp: In function 'void store_char(unsigned char, ring_buffer*)':
+C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp:98: warning: comparison between signed and unsigned integer expressions
+C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp: In function 'void __vector_18()':
+C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp:127: warning: unused variable 'c'
+C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp: In member function 'void HardwareSerial::begin(long unsigned int, byte)':
+C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp:368: warning: unused variable 'current_config'
+C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp: In member function 'virtual size_t HardwareSerial::write(uint8_t)':
+C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp:467: warning: comparison between signed and unsigned integer expressions
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/HardwareSerial.cpp
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/IPAddress.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/IPAddress.d" -MT"src/IPAddress.d" -c -o "src/IPAddress.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/IPAddress.cpp"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/IPAddress.cpp
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Print.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/Print.d" -MT"src/Print.d" -c -o "src/Print.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Print.cpp"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Print.cpp
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Stream.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/Stream.d" -MT"src/Stream.d" -c -o "src/Stream.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Stream.cpp"
+C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Stream.cpp: In member function 'bool Stream::find(char*)':
+C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Stream.cpp:78: warning: deprecated conversion from string constant to 'char*'
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Stream.cpp
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Tone.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/Tone.d" -MT"src/Tone.d" -c -o "src/Tone.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Tone.cpp"
+C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Tone.cpp:119: warning: only initialized variables can be placed into program memory area
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/Tone.cpp
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/USBCore.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/USBCore.d" -MT"src/USBCore.d" -c -o "src/USBCore.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/USBCore.cpp"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/USBCore.cpp
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/WInterrupts.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -std=gnu99 -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/WInterrupts.d" -MT"src/WInterrupts.d" -c -o "src/WInterrupts.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/WInterrupts.c"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/WInterrupts.c
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/WMath.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/WMath.d" -MT"src/WMath.d" -c -o "src/WMath.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/WMath.cpp"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/WMath.cpp
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/WString.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/WString.d" -MT"src/WString.d" -c -o "src/WString.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/WString.cpp"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/WString.cpp
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/new.cpp
+Invoking: AVR C++ Compiler
+avr-g++ -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -fno-exceptions -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/new.d" -MT"src/new.d" -c -o "src/new.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/new.cpp"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/new.cpp
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -std=gnu99 -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/wiring.d" -MT"src/wiring.d" -c -o "src/wiring.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring.c"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring.c
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_analog.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -std=gnu99 -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/wiring_analog.d" -MT"src/wiring_analog.d" -c -o "src/wiring_analog.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_analog.c"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_analog.c
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_digital.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -std=gnu99 -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/wiring_digital.d" -MT"src/wiring_digital.d" -c -o "src/wiring_digital.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_digital.c"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_digital.c
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_pulse.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -std=gnu99 -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/wiring_pulse.d" -MT"src/wiring_pulse.d" -c -o "src/wiring_pulse.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_pulse.c"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_pulse.c
+ 
+Building file: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_shift.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\cores\arduino" -I"C:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\arduino\variants\standard" -Wall -Os -ffunction-sections -fdata-sections -ffunction-sections -fdata-sections -std=gnu99 -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/wiring_shift.d" -MT"src/wiring_shift.d" -c -o "src/wiring_shift.o" "C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_shift.c"
+Finished building: C:/Users/cams7/Desenv/embarcado/arduino/arduino-1.0.6/hardware/arduino/cores/arduino/wiring_shift.c
+ 
+Building target: libArduinoCore.a
+Invoking: AVR Archiver
+avr-ar -r  "libArduinoCore.a"  ./src/avr-libc/malloc.o ./src/avr-libc/realloc.o  ./src/CDC.o ./src/HID.o ./src/HardwareSerial.o ./src/IPAddress.o ./src/Print.o ./src/Stream.o ./src/Tone.o ./src/USBCore.o ./src/WInterrupts.o ./src/WMath.o ./src/WString.o ./src/new.o ./src/wiring.o ./src/wiring_analog.o ./src/wiring_digital.o ./src/wiring_pulse.o ./src/wiring_shift.o  
+c:\Users\cams7\Desenv\embarcado\arduino\arduino-1.0.6\hardware\tools\avr\bin\avr-ar.exe: creating libArduinoCore.a
+Finished building target: libArduinoCore.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libArduinoCore.a  >"libArduinoCore.lss"
+Finished building: libArduinoCore.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p libArduinoCore.a
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:      14 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:         14 bytes (0.7% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       1 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          1 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       1 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          1 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:       0 bytes (0.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:59:49 Build Finished (took 6s.429ms)
+

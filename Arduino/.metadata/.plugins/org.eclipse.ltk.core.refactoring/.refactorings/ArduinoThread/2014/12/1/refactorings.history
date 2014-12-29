@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;ArduinoThread/src/Thread.h&apos; to &apos;Thread1.h&apos;" description="Rename resource &apos;Thread.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Thread.h" name="Thread1.h" stamp="1419892902487" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;ArduinoThread/src/Thread1.h&apos; to &apos;Thread.h&apos;" description="Rename resource &apos;Thread1.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Thread1.h" name="Thread.h" stamp="1419892950105" updateReferences="true"/>
+</session>
